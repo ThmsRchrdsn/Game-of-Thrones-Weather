@@ -12,7 +12,13 @@ const temperatureDescriptorArray = [
   "Hot",
   "Scorching Hot",
 ];
-const backgroundImages = "url(../../gallery/Casterly Rock.png)";
+const backgroundImages = [
+  'url("../../gallery/Winterfell.png")',
+  'url("../../gallery/Casterly Rock.png")',
+  'url("../../gallery/Kings Landing.png")',
+  'url("../../gallery/Dorne.png")',
+  'url("../../gallery/The Dothraki Sea.png")',
+];
 
 check.addEventListener("click", () => {
   let key = `25283bed1fbb2e944c3914b6a2782899`;
@@ -23,7 +29,7 @@ check.addEventListener("click", () => {
       return response.json();
     })
     .then((data) => {
-    //   console.log(data);
+      //   console.log(data);
       weatherCountry.innerText = `${data.name} / ${data.sys.country}`;
       fictionalComparedCity.innerText = getCityFromDescription(data.main.temp);
       temperatureDescription =
@@ -54,15 +60,25 @@ function getTemperatureDescriptor(temperature) {
 
 function getCityFromDescription(temperature) {
   if (temperature <= 0) {
+    document.getElementById("container").style.backgroundImage =
+      backgroundImages[0];
     return "Winterfell";
   } else if (temperature > 0 && temperature <= 10) {
-    console.log(window.getComputedStyle(document.getElementById("container")).getPropertyValue("background-image"));
+    console.log(backgroundImages[1]);
+    document.getElementById("container").style.backgroundImage =
+      backgroundImages[1];
     return "Casterly Rock";
   } else if (temperature > 10 && temperature <= 20) {
+    document.getElementById("container").style.backgroundImage =
+      backgroundImages[2];
     return "Kings Landing";
   } else if (temperature > 20 && temperature <= 30) {
+    document.getElementById("container").style.backgroundImage =
+      backgroundImages[3];
     return "Dorne";
   } else {
+    document.getElementById("container").style.backgroundImage =
+      backgroundImages[4];
     return "The Dothraki Sea";
   }
 }
