@@ -13,11 +13,11 @@ const temperatureDescriptorArray = [
   "Scorching Hot",
 ];
 const backgroundImages = [
-  'url("../../gallery/Winterfell.png")',
-  'url("../../gallery/Casterly Rock.png")',
-  'url("../../gallery/Kings Landing.png")',
-  'url("../../gallery/Dorne.png")',
-  'url("../../gallery/The Dothraki Sea.png")',
+  'url("/gallery/Winterfell.png")',
+  'url("/gallery/Casterly Rock.png")',
+  'url("/gallery/Kings Landing.png")',
+  'url("/gallery/Dorne.png")',
+  'url("/gallery/The Dothraki Sea.png")',
 ];
 
 check.addEventListener("click", () => {

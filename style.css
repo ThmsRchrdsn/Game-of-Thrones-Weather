@@ -11,7 +11,7 @@
   height: 100vh;
   width: 100%;
   position: relative;
-  background-image: url("../../gallery/Winterfell.png");
+  background-image: url("/gallery/Winterfell.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
