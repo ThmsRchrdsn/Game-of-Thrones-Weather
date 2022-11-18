@@ -4,6 +4,7 @@ let check = document.querySelector("#check");
 let weatherCountry = document.querySelector("#weatherCountry");
 let weatherDescription = document.querySelector("#weatherDescription");
 let fictionalComparedCity = document.querySelector("#fictionalComparedCity");
+let fictionalCityQuote = document.querySelector("#fictionalCityQuote");
 let temperatureDescription = "";
 const temperatureDescriptorArray = [
   "Freezing Cold",
@@ -13,11 +14,11 @@ const temperatureDescriptorArray = [
   "Scorching Hot",
 ];
 const backgroundImages = [
-  'url("./gallery/Winterfell.png")',
-  'url("./gallery/Casterly Rock.png")',
-  'url("./gallery/Kings Landing.png")',
-  'url("./gallery/Dorne.png")',
-  'url("./gallery/The Dothraki Sea.png")',
+  'url("./gallery/Winterfell.jpg")',
+  'url("./gallery/Casterly Rock.jpg")',
+  'url("./gallery/Kings Landing.jpg")',
+  'url("./gallery/Dorne.jpg")',
+  'url("./gallery/Qarth.jpg")',
 ];
 
 check.addEventListener("click", () => {
@@ -31,9 +32,7 @@ check.addEventListener("click", () => {
     .then((data) => {
       //   console.log(data);
       weatherCountry.innerText = `${data.name} / ${data.sys.country}`;
-      fictionalComparedCity.innerText = getCityFromDescription(data.main.temp);
-      temperatureDescription =
-        temperatureDescriptorArray[getTemperatureDescriptor(data.main.temp)];
+      getCityFromDescription(data.main.temp);
       weatherDescription.innerText =
         temperatureDescription +
         " and " +
@@ -44,41 +43,41 @@ check.addEventListener("click", () => {
   city.value = "";
 });
 
-function getTemperatureDescriptor(temperature) {
-  if (temperature <= 0) {
-    return 0;
-  } else if (temperature > 0 && temperature <= 10) {
-    return 1;
-  } else if (temperature > 10 && temperature <= 20) {
-    return 2;
-  } else if (temperature > 20 && temperature <= 30) {
-    return 3;
-  } else {
-    return 4;
-  }
-}
-
 function getCityFromDescription(temperature) {
   if (temperature <= 0) {
+    temperatureDescription = temperatureDescriptorArray[0];
     document.getElementById("container").style.backgroundImage =
       backgroundImages[0];
-    return "Winterfell";
+    fictionalComparedCity.innerText = "Winterfell";
+    fictionalCityQuote.innerText = '"The Lord of Winterfell would always be a Stark. —thoughts of Tyrion Lannister"';
+
   } else if (temperature > 0 && temperature <= 10) {
+    temperatureDescription = temperatureDescriptorArray[1];
     console.log(backgroundImages[1]);
     document.getElementById("container").style.backgroundImage =
       backgroundImages[1];
-    return "Casterly Rock";
+    fictionalComparedCity.innerText = "Casterly Rock";
+    fictionalCityQuote.innerText = '"Stone, I must be stone, I must be Casterly Rock, hard and unmovable." —thoughts of Tyrion Lannister';
+
   } else if (temperature > 10 && temperature <= 20) {
+    temperatureDescription = temperatureDescriptorArray[2];
     document.getElementById("container").style.backgroundImage =
       backgroundImages[2];
-    return "Kings Landing";
+    fictionalComparedCity.innerText = 'King'+"'"+'s Landing';
+    fictionalCityQuote.innerText = '"King'+"'"+'s Landing is a pit of snakes." —Doran Martell to Nymeria Sand';
+
   } else if (temperature > 20 && temperature <= 30) {
+    temperatureDescription = temperatureDescriptorArray[3];
     document.getElementById("container").style.backgroundImage =
       backgroundImages[3];
-    return "Dorne";
+    fictionalComparedCity.innerText = "Dorne";
+    fictionalCityQuote.innerText = '"Dorne is sand and scorpions, and bleak red mountains baking in the sun." —Reznak mo Reznak to Skahaz mo Kandaq';
+
   } else {
+    temperatureDescription = temperatureDescriptorArray[4];
     document.getElementById("container").style.backgroundImage =
       backgroundImages[4];
-    return "The Dothraki Sea";
+    fictionalComparedCity.innerText = "Qarth";
+    fictionalCityQuote.innerText = '"These are strange times in Qarth. And strange times are bad for trade." —Xaro Xhoan Daxos to Daenerys Targaryen';
   }
 }
