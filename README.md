@@ -1,5 +1,7 @@
 # Game of Thrones Weather
 
+Weather information supplied by [OpenWeatherMap](https://openweathermap.org). 
+
 All images supplied by [Unsplash](https://unsplash.com).
 
 | Temperature | Cloud Coverage                                                 |                                                                          |

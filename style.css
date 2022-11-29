@@ -72,3 +72,15 @@
 .bottom-one {
   margin-bottom: 1cm;
 }
+
+.bottom{
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+}
+
+.bottom2{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
