@@ -58,6 +58,16 @@ const comparedCitiesQuotes = [
 ];
 
 check.addEventListener("click", () => {
+  fireEvent();
+});
+
+document.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    fireEvent();
+  }
+});
+
+function fireEvent(){
   let key = `25283bed1fbb2e944c3914b6a2782899`;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value},${country.value}&lang=en&units=metric&appid=${key}`;
 
@@ -77,7 +87,7 @@ check.addEventListener("click", () => {
     });
   country.value = "";
   city.value = "";
-});
+}
 
 function getCityFromDescription(temperature, cloudCoverage) {
   let cityNumber;
