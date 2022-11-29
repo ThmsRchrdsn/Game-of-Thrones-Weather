@@ -9,24 +9,37 @@ let temperatureDescription = "";
 const temperatureDescriptorArray = [
   "Freezing Cold",
   "Cold",
+  "Chilly",
   "Mild",
   "Hot",
   "Scorching Hot",
 ];
 const backgroundImages = [
+  'url("./gallery/Hardhome.jpg")',
+  'url("./gallery/Crasters Keep.jpg")',
   'url("./gallery/The Wall.jpg")',
   'url("./gallery/Winterfell.jpg")',
+  'url("./gallery/The Erie.jpg")',
+  'url("./gallery/The Iron Islands.jpg")',
   'url("./gallery/Casterly Rock.jpg")',
   'url("./gallery/Kings Landing.jpg")',
+  'url("./gallery/Highgarden.jpg")',
   'url("./gallery/Sunspear.jpg")',
+  'url("./gallery/Tyrosh.jpg")',
   'url("./gallery/Qarth.jpg")',
 ];
 const comparedCities = [
+  "Hardhome",
+  "Crasters Keep",
   "The Wall",
   "Winterfell",
+  "The Erie",
+  "The Iron Islands",
   "Casterly Rock",
   "Kings Landing",
+  "Highgarden",
   "Sunspear",
+  "Tyrosh",
   "Qarth",
 ];
 const comparedCitiesQuotes = [
@@ -48,7 +61,7 @@ check.addEventListener("click", () => {
     .then((data) => {
       // console.log(data.clouds.all);
       weatherCountry.innerText = `${data.name} / ${data.sys.country}`;
-      getCityFromDescription(data.main.temp);
+      getCityFromDescription(data.main.temp, data.clouds.all);
       weatherDescription.innerText =
         temperatureDescription +
         " and " +
@@ -59,22 +72,29 @@ check.addEventListener("click", () => {
   city.value = "";
 });
 
-function getCityFromDescription(temperature) {
+function getCityFromDescription(temperature, cloudCoverage) {
   let cityNumber;
+  let cityNumbers = [];
   if (temperature <= -10) {
-    cityNumber = 0;
+    cityNumbers = [0, 1];
   } else if (temperature > -10 && temperature <= 0) {
-    cityNumber = 1;
+    cityNumbers = [2, 3];
   } else if (temperature > 0 && temperature <= 10) {
-    cityNumber = 2;
+    cityNumbers = [4, 5];
   } else if (temperature > 10 && temperature <= 20) {
-    cityNumber = 3;
+    cityNumbers = [6, 7];
   } else if (temperature > 20 && temperature <= 30) {
-    cityNumber = 4;
+    cityNumbers = [8, 9];
   } else if (temperature > 30) {
-    cityNumber = 5;
+    cityNumbers = [10, 11];
   }
-  temperatureDescription = temperatureDescriptorArray[cityNumber];
+  if (cloudCoverage >= 50) {
+    cityNumber = cityNumbers[0];
+  } else if (cloudCoverage < 50) {
+    cityNumber = cityNumbers[1];
+  }
+
+  temperatureDescription = temperatureDescriptorArray[Math.floor(cityNumber/2)];
   document.getElementById("container").style.backgroundImage =
     backgroundImages[cityNumber];
   fictionalComparedCity.innerText = comparedCities[cityNumber];
