@@ -19,7 +19,7 @@ const backgroundImages = [
   'url("./gallery/Crasters Keep.jpg")',
   'url("./gallery/The Wall.jpg")',
   'url("./gallery/Winterfell.jpg")',
-  'url("./gallery/The Erie.jpg")',
+  'url("./gallery/The Eyrie.jpg")',
   'url("./gallery/The Iron Islands.jpg")',
   'url("./gallery/Casterly Rock.jpg")',
   'url("./gallery/Kings Landing.jpg")',
@@ -33,7 +33,7 @@ const comparedCities = [
   "Crasters Keep",
   "The Wall",
   "Winterfell",
-  "The Erie",
+  "The Eyrie",
   "The Iron Islands",
   "Casterly Rock",
   "Kings Landing",
@@ -43,10 +43,17 @@ const comparedCities = [
   "Qarth",
 ];
 const comparedCitiesQuotes = [
+  '"Hardhome is an unholy place, its said. Cursed. " —Othell Yarwyck to Jon Snow',
+  '"Your uncle could tell you of the times Crasters Keep made the difference between life and death for our rangers." —Jeor Mormont to Jon Snow',
+  '"The Wall can stop an army, but not a man alone." —Mance Rayder to Jon Snow',
   '"The Lord of Winterfell would always be a Stark. —thoughts of Tyrion Lannister"',
+  '"Those years we spent in the Eyrie ... gods, those were good years." —Robert I Baratheon to Eddard Stark',
+  '"The Iron Islands lived in the past; the present was too hard and bitter to be borne." —thoughts of Theon Greyjoy',
   '"Stone, I must be stone, I must be Casterly Rock, hard and unmovable." —thoughts of Tyrion Lannister',
   '"Kings Landing is a pit of snakes." —Doran Martell to Nymeria Sand',
-  '"Dorne is sand and scorpions, and bleak red mountains baking in the sun." —Reznak mo Reznak to Skahaz mo Kandaq',
+  '"The war had not touched the fabled bounty of Highgarden." —thoughts of Catelyn Stark',
+  '',
+  '',
   '"These are strange times in Qarth. And strange times are bad for trade." —Xaro Xhoan Daxos to Daenerys Targaryen',
 ];
 
@@ -98,5 +105,5 @@ function getCityFromDescription(temperature, cloudCoverage) {
   document.getElementById("container").style.backgroundImage =
     backgroundImages[cityNumber];
   fictionalComparedCity.innerText = comparedCities[cityNumber];
-  // fictionalCityQuote.innerText = comparedCitiesQuotes[cityNumber];
+  fictionalCityQuote.innerText = comparedCitiesQuotes[cityNumber];
 }
