@@ -24,8 +24,8 @@ const backgroundImages = [
   'url("./gallery/Casterly Rock.jpg")',
   'url("./gallery/Kings Landing.jpg")',
   'url("./gallery/Highgarden.jpg")',
-  'url("./gallery/Sunspear.jpg")',
-  'url("./gallery/Tyrosh.jpg")',
+  'url("./gallery/Meereen.jpg")',
+  'url("./gallery/Astapor.jpg")',
   'url("./gallery/Qarth.jpg")',
 ];
 const comparedCities = [
@@ -38,8 +38,8 @@ const comparedCities = [
   "Casterly Rock",
   "Kings Landing",
   "Highgarden",
-  "Sunspear",
-  "Tyrosh",
+  "Meereen",
+  "Astapor",
   "Qarth",
 ];
 const comparedCitiesQuotes = [
@@ -52,8 +52,8 @@ const comparedCitiesQuotes = [
   '"Stone, I must be stone, I must be Casterly Rock, hard and unmovable." —thoughts of Tyrion Lannister',
   '"Kings Landing is a pit of snakes." —Doran Martell to Nymeria Sand',
   '"The war had not touched the fabled bounty of Highgarden." —thoughts of Catelyn Stark',
-  '',
-  '',
+  '"Meereen had been rich beyond imagining." —thoughts of Daenerys Targaryen',
+  '"Even a modest khalasar could crack this Astapor like a nut and spill out the rotted meat inside." —Daenerys Targaryen to Jorah Mormont',
   '"These are strange times in Qarth. And strange times are bad for trade." —Xaro Xhoan Daxos to Daenerys Targaryen',
 ];
 
