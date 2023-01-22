@@ -1,5 +1,7 @@
 # Game of Thrones Weather
 
+Inspired by Tom Scott's "The Star Wars Weather Forecast", he explains his process in [this video](https://www.youtube.com/watch?v=BxV14h0kFs0&ab_channel=TomScott).
+
 Weather information supplied by [OpenWeatherMap](https://openweathermap.org). 
 
 All images supplied by [Unsplash](https://unsplash.com).

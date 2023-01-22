@@ -73,14 +73,20 @@
   margin-bottom: 1cm;
 }
 
-.bottom{
+.texthugnearthebottomleft{
   position: absolute;
   bottom: 15px;
   left: 0;
 }
 
-.bottom2{
+.texthugthebottomleft{
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.texthugthebottomright{
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
