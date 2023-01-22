@@ -61,13 +61,13 @@ check.addEventListener("click", () => {
   fireEvent();
 });
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     fireEvent();
   }
 });
 
-function fireEvent(){
+function fireEvent() {
   let key = `25283bed1fbb2e944c3914b6a2782899`;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value},${country.value}&lang=en&units=metric&appid=${key}`;
 
@@ -76,12 +76,13 @@ function fireEvent(){
       return response.json();
     })
     .then((data) => {
-      // console.log(data.clouds.all);
+      console.log(Math.round(data.main.temp));
       weatherCountry.innerText = `${data.name} / ${data.sys.country}`;
       getCityFromDescription(data.main.temp, data.clouds.all);
       weatherDescription.innerText =
+        Math.round(data.main.temp) + "\u00B0C (" +
         temperatureDescription +
-        " and " +
+        ") and " +
         data.weather[0].description +
         ", it's like...";
     });
@@ -111,7 +112,8 @@ function getCityFromDescription(temperature, cloudCoverage) {
     cityNumber = cityNumbers[1];
   }
 
-  temperatureDescription = temperatureDescriptorArray[Math.floor(cityNumber/2)];
+  temperatureDescription =
+    temperatureDescriptorArray[Math.floor(cityNumber / 2)];
   document.getElementById("container").style.backgroundImage =
     backgroundImages[cityNumber];
   fictionalComparedCity.innerText = comparedCities[cityNumber];
